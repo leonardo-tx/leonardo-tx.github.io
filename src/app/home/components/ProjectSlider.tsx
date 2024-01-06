@@ -29,6 +29,7 @@ export default function ProjectSlider(): JSX.Element {
             className={styles.slider}>
             {allProjects.map((value, i) => (
                 <Image 
+                    priority
                     width={800}
                     height={450}
                     key={i} 

@@ -16,6 +16,7 @@ export default function InfoBanner(): JSX.Element {
                 <Text>({t("pages.home.banner-known-as", t("author.username"))})</Text>
             </div>
             <Image 
+                priority
                 className={styles["banner-author-image"]} 
                 src="/images/leonardo-teixeira.jpg"
                 width="256"
