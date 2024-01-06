@@ -1,0 +1,13 @@
+.content {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 80px;
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 0 5px;
+    }
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "fun-chess",
+        "projectType": 2,
+        "images": [
+            "play-page.png",
+            "online-match.png",
+            "online-chat.png"
+        ]
+    },
+    {
+        "name": "byces-calculator",
+        "projectType": 0,
+        "images": [
+            "nuget-page.png"
+        ]
+    },
+    {
+        "name": "sync-clock",
+        "projectType": 1,
+        "images": [
+            "main-menu.png"
+        ]
+    },
+    {
+        "name": "sudoku-app",
+        "projectType": 2,
+        "images": [
+            "sudoku-app.jpeg"
+        ]
+    }
+]

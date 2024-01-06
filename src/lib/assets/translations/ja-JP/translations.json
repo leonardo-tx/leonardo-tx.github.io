@@ -1,0 +1,31 @@
+{
+    "titles": {
+        "home": "ホームページ",
+        "settings": "設定"
+    },
+    "author": {
+        "name": "レオナルド・テイシェイラ",
+        "username": "バイセス"
+    },
+    "project-type": {
+        "0": "パッケージ",
+        "1": "コンソール",
+        "2": "ウェブサイト"
+    },
+    "pages": {
+        "home": {
+            "banner-known-as": "{0}としても知られています",
+            "banner-description": "現在、2022 年から Instituto Infnet でソフトウェア エンジニアリングの学士号を取得しています。2018 年から 2020 年の間に完了した Serviço Nacional de Aprendizagem Industrial (SENAI) を通じてコンピュータ ネットワークの認定プログラムを取得しています。",
+            "projects-heading": "私のプロジェクト"
+        },
+        "settings": {
+            "change-language": "言語を変更"
+        }
+    },
+    "header": {
+        "home-link": "ホーム",
+        "projects-link": "プロジェクト",
+        "about-link": "について",
+        "settings-link": "設定"
+    }
+}

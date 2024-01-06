@@ -1,0 +1,13 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.home-projects {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+}

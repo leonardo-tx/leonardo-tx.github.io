@@ -1,0 +1,24 @@
+{
+    "titles": {
+        "home": "Página inicial",
+        "settings": "Configurações"
+    },
+    "project-type": {
+        "0": "Pacote"
+    },
+    "pages": {
+        "home": {
+            "banner-known-as": "Também conhecido como {0}",
+            "banner-description": "Atualmente cursando bacharelado de Engenharia de Software no Instituto Infnet desde 2022. Possui curso técnico integrado em Redes de Computadores através do Serviço Nacional de Aprendizagem Industrial (SENAI) feito entre 2018 - 2020.",
+            "projects-heading": "Meus projetos"
+        },
+        "settings": {
+            "change-language": "Alterar idioma"
+        }
+    },
+    "header": {
+        "projects-link": "Projetos",
+        "about-link": "Sobre",
+        "settings-link": "Configurações"
+    }
+}
