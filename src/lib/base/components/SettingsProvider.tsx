@@ -22,15 +22,16 @@ export default function SettingsProvider({ children }: Props): JSX.Element {
     useEffect(() => {
         setSettings(() => {
             setShow(true);
-            return { langCode: languageStorage.getLangCode() }
+            return { langCode: languageStorage.getLangCode() };
         });
     }, [setSettings])
 
     useEffect(() => {
+        if (!show) return;
         document.documentElement.lang = settings.langCode;
 
         const englishFile = require(`@/lib/assets/translations/en/translations.json`);
-        if (settings.langCode === "en") {
+        if (settings.langCode === "en" || settings.langCode === "undefined") {
             setTranslationFile(englishFile);
             return;
         }
@@ -38,12 +39,14 @@ export default function SettingsProvider({ children }: Props): JSX.Element {
         const merged = mergeDeep(englishFile, choosedLanguageFile);
 
         setTranslationFile(merged);
-    }, [settings.langCode, setTranslationFile])
+    }, [settings.langCode, setTranslationFile, show])
 
     useEffect(() => {
+        if (!show) return;
+
         const formattedPathName = pathname === '/' ? "home" : pathname.slice(1).replace('/', '-');
         document.title = `${t(`titles.${formattedPathName}`)} - ${t("author.name")}`;
-    }, [t, pathname])
+    }, [t, pathname, show])
 
     return (
         <>

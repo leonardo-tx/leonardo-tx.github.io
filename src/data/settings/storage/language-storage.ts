@@ -10,17 +10,19 @@ supportedLanguages.add("ja-JP");
 
 export function getLangCode(): string {
     let langCode = settingsStorage.getSettingsValue(key);
-    if (typeof langCode === "string") {
-        if (supportedLanguages.has(langCode)) return langCode;
+    if (typeof langCode === "string" && langCode !== "undefined" && supportedLanguages.has(langCode)) {
+        return langCode;
     } else {
-        langCode = settingsStorage.defaultSettings.langCode;
+        langCode = navigator.language;
+        if (supportedLanguages.has(langCode as string)) return langCode as string
     }
 
     const language = (langCode as string).split('-')[0];
-    supportedLanguages.forEach((key) => {
-        if (key.startsWith(language)) return key;
-    });
+    const langCodeKeys = Array.from(supportedLanguages);
     
+    for (let i = 0; i < langCodeKeys.length; i++) {
+        if (langCodeKeys[i].startsWith(language)) return langCodeKeys[i];
+    }
     return "en";
 }
 

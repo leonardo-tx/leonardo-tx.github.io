@@ -3,7 +3,7 @@ import Settings from "@/core/settings/Settings";
 const storageKey = "settings";
 
 export const defaultSettings: Settings = {
-    langCode: navigator.language
+    langCode: "undefined"
 }
 
 export function getSettingsValue(key: string): unknown {
