@@ -1,6 +1,8 @@
 {
+    "translation-mistakes": "選択した言語では主に Google 翻訳が使用されており、翻訳が正しくない可能性があります。私は日本語を勉強中なので、間違いがあったらごめんなさい。",
     "titles": {
         "home": "ホームページ",
+        "contacts": "連絡先",
         "settings": "設定"
     },
     "author": {
@@ -12,11 +14,28 @@
         "1": "コンソール",
         "2": "ウェブサイト"
     },
+    "skill-type": {
+        "0": "初心者",
+        "1": "基本的な",
+        "2": "中間体",
+        "3": "高度な",
+        "4": "専門家",
+        "5": "流暢"
+    },
+    "language-type": {
+        "en": "英語",
+        "pt-BR": "ブラジルポルトガル語",
+        "ja-JP": "日本語",
+        "es": "スペイン語"
+    },
     "pages": {
         "home": {
             "banner-known-as": "{0}としても知られています",
             "banner-description": "現在、2022 年から Instituto Infnet でソフトウェア エンジニアリングの学士号を取得しています。2018 年から 2020 年の間に完了した Serviço Nacional de Aprendizagem Industrial (SENAI) を通じてコンピュータ ネットワークの認定プログラムを取得しています。",
-            "projects-heading": "私のプロジェクト"
+            "projects-heading": "私のプロジェクト",
+            "skills-heading": "技能",
+            "programming-languages-heading": "プログラミング言語 / フレームワーク",
+            "human-languages-heading": "人間の言語"
         },
         "settings": {
             "change-language": "言語を変更"
@@ -25,7 +44,7 @@
     "header": {
         "home-link": "ホーム",
         "projects-link": "プロジェクト",
-        "about-link": "について",
-        "settings-link": "設定"
+        "settings-link": "設定",
+        "contacts-link": "連絡先"
     }
 }

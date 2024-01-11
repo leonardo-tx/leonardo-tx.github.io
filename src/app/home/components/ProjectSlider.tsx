@@ -28,16 +28,18 @@ export default function ProjectSlider(): JSX.Element {
             onMouseLeave={() => setStopSlide(false)} 
             className={styles.slider}>
             {allProjects.map((value, i) => (
-                <Image 
-                    priority
-                    width={800}
-                    height={450}
-                    key={i} 
-                    className={`${styles["slider-project"]} ${i === project ? styles["slider-project-active"] : ""}`}  
-                    draggable="false" 
-                    src={`/images/projects/${value.name}/${value.images[0]}`} 
-                    alt="" 
-                />
+                <div key={i} className={`${styles["slider-project"]} ${i === project ? styles["slider-project-active"] : ""}`} >
+                    <Image 
+                        priority
+                        width={800}
+                        height={450}
+                         
+                        draggable="false" 
+                        src={`/images/projects/${value.name}/${value.images[0]}`} 
+                        alt=""
+                        
+                    />
+                </div>
             ))}
             <div className={styles["slider-info"]}>
                 <Heading size="md" as="h3">

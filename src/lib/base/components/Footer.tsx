@@ -3,7 +3,7 @@
 import { JSX } from "react";
 import styles from "../styles/Footer.module.css";
 import { ButtonGroup, IconButton } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import useTranslation from "@/data/settings/hooks/useTranslation";
 
 export default function Footer(): JSX.Element {
@@ -15,14 +15,14 @@ export default function Footer(): JSX.Element {
                 <IconButton 
                     as="a" 
                     aria-label="Github icon"
-                    icon={<FaGithub size={26} />} 
+                    icon={<SiGithub size={25} />} 
                     href="https://github.com/leonardo-tx" 
                     target="_blank" 
                 />
                 <IconButton 
                     as="a" 
                     aria-label="Linkedin icon"
-                    icon={<FaLinkedin size={26} />} 
+                    icon={<SiLinkedin size={25} />} 
                     href="https://www.linkedin.com/in/leonardotx/" 
                     target="_blank" 
                 />

@@ -1,16 +1,34 @@
 {
     "titles": {
         "home": "Página inicial",
+        "contacts": "Contatos",
         "settings": "Configurações"
     },
     "project-type": {
         "0": "Pacote"
     },
+    "skill-type": {
+        "0": "Iniciante",
+        "1": "Básico",
+        "2": "Intermediário",
+        "3": "Avançado",
+        "4": "Especialista",
+        "5": "Fluente"
+    },
+    "language-type": {
+        "en": "Inglês",
+        "pt-BR": "Português Brasileiro",
+        "ja-JP": "Japonês",
+        "es": "Espanhol"
+    },
     "pages": {
         "home": {
             "banner-known-as": "Também conhecido como {0}",
             "banner-description": "Atualmente cursando bacharelado de Engenharia de Software no Instituto Infnet desde 2022. Possui curso técnico integrado em Redes de Computadores através do Serviço Nacional de Aprendizagem Industrial (SENAI) feito entre 2018 - 2020.",
-            "projects-heading": "Meus projetos"
+            "projects-heading": "Meus projetos",
+            "skills-heading": "Conhecimentos",
+            "programming-languages-heading": "Linguagens de Programação / Frameworks",
+            "human-languages-heading": "Linguagens Humanas"
         },
         "settings": {
             "change-language": "Alterar idioma"
@@ -18,7 +36,7 @@
     },
     "header": {
         "projects-link": "Projetos",
-        "about-link": "Sobre",
-        "settings-link": "Configurações"
+        "settings-link": "Configurações",
+        "contacts-link": "Contatos"
     }
 }

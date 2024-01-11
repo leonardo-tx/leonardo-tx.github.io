@@ -14,10 +14,7 @@ export default function MainNavigationList(): JSX.Element {
                 <Link className={styles["nav-anchor"]} href="/">{t("header.home-link")}</Link>
             </li>
             <li>
-                <Link className={styles["nav-anchor"]} href="/projects">{t("header.projects-link")}</Link>
-            </li>
-            <li>
-                <Link className={styles["nav-anchor"]} href="/about">{t("header.about-link")}</Link>
+                <Link className={styles["nav-anchor"]} href="/contacts">{t("header.contacts-link")}</Link>
             </li>
         </ul>
     );

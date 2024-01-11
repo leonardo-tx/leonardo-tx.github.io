@@ -1,6 +1,7 @@
 {
     "titles": {
         "home": "Home page",
+        "contacts": "Contacts",
         "settings": "Settings"
     },
     "author": {
@@ -11,6 +12,20 @@
         "0": "Package",
         "1": "Console",
         "2": "Website"
+    },
+    "skill-type": {
+        "0": "Beginner",
+        "1": "Basic",
+        "2": "Intermediary",
+        "3": "Advanced",
+        "4": "Expert",
+        "5": "Fluent"
+    },
+    "language-type": {
+        "en": "English",
+        "pt-BR": "Brazilian Portuguese",
+        "ja-JP": "Japanese",
+        "es": "Spanish"
     },
     "projects": {
         "fun-chess": {
@@ -30,7 +45,10 @@
         "home": {
             "banner-known-as": "A.K.A. {0}",
             "banner-description": "Currently studying a Bachelor's degree in Software Engineering at Instituto Infnet since 2022. Has a certificate program in Computer Networks through the Serviço Nacional de Aprendizagem Industrial (SENAI) completed between 2018 - 2020.",
-            "projects-heading": "My projects"
+            "projects-heading": "My projects",
+            "skills-heading": "Skills",
+            "programming-languages-heading": "Programming Languages / Frameworks",
+            "human-languages-heading": "Human Languages"
         },
         "settings": {
             "change-language": "Change language"
@@ -39,7 +57,7 @@
     "header": {
         "home-link": "Home",
         "projects-link": "Projects",
-        "about-link": "About",
-        "settings-link": "Settings"
+        "settings-link": "Settings",
+        "contacts-link": "Contacts"
     }
 }

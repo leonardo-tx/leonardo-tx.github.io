@@ -1,0 +1,15 @@
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 9px;
+    padding: 6px;
+    background-color: #2b2c36;
+}
+
+.skill-item-header {
+    display: flex;
+    gap: 10px;
+    text-align: left;
+    align-items: center;
+}

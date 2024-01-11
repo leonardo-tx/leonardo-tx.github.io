@@ -11,3 +11,23 @@
     align-items: center;
     gap: 15px;
 }
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.skills-section-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+}
+
+@media only screen and (max-width: 401px) {
+    .skills-section-items {
+        grid-template-columns: 1fr;
+    }
+}
