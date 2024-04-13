@@ -45,4 +45,6 @@ const BoardDivisor = styled(GridItem, { shouldForwardProp: (propName) => propNam
     z-index: ${props => props.$divisor === "cell" ? 2 : 3};
 `;
 
+Divisors.displayName = "Divisors";
+
 export default Divisors;
