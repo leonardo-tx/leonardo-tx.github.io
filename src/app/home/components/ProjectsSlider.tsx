@@ -1,7 +1,7 @@
 "use client";
 
 import { JSX, useEffect, useState } from "react";
-import styles from "../styles/ProjectSlider.module.css";
+import styles from "../styles/ProjectsSlider.module.css";
 import projects from "@/lib/assets/content/projects.json";
 import Project from "@/core/projects/Project";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { Heading, IconButton } from "@chakra-ui/react";
 import useTranslation from "@/data/settings/hooks/useTranslation";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
-export default function ProjectSlider(): JSX.Element {
+export default function ProjectsSlider(): JSX.Element {
     const [project, setProject] = useState(0);
     const [stopSlide, setStopSlide] = useState(false);
     const { t } = useTranslation();

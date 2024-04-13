@@ -9,7 +9,12 @@
     left: 0;
     background-color: #191922;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index: 2000;
+    z-index: 1000;
+    align-items: center;
+}
+
+.sidebar-button {
+    display: none;
 }
 
 .nav {
@@ -20,26 +25,18 @@
     grid-template-columns: 1fr auto;
 }
 
-.nav-list {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-}
-
-.nav-list-menu {
-    background-color: #1d1d27;
-}
-
-.nav-list-menu > a {
-    background-color: transparent;
-}
-
-.nav-anchor:hover {
-    color: #d4d4d4
-}
-
 @media only screen and (max-width: 768px) {
     .header {
         padding: 0 15px;
+    }
+
+    .sidebar-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav {
+        display: none;  
     }
 }

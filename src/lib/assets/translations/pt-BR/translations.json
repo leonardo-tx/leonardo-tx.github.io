@@ -1,6 +1,7 @@
 {
     "titles": {
         "home": "Página inicial",
+        "projects": "Projetos",
         "contacts": "Contatos",
         "settings": "Configurações"
     },
@@ -15,11 +16,32 @@
         "4": "Especialista",
         "5": "Fluente"
     },
+    "difficulty-type": {
+        "0": "Iniciante",
+        "1": "Fácil",
+        "2": "Médio",
+        "3": "Difícil",
+        "4": "Especialista"
+    },
     "language-type": {
         "en": "Inglês",
         "pt-BR": "Português Brasileiro",
         "ja-JP": "Japonês",
         "es": "Espanhol"
+    },
+    "projects": {
+        "fun-chess": {
+            "description": "Um projeto de xadrez online inspirado no site chess.com, foi criado utilizando React como front-end e C# como API" 
+        },
+        "byces-calculator": {
+            "description": "Uma biblioteca em C#/.NET disponível no Nuget que calcula expressões matemáticas e booleanas"
+        },
+        "sync-clock": {
+            "description": "Um programa console desenvolvido em C# para sincronizar o horário de uma máquina Windows"
+        },
+        "sudoku-app": {
+            "description": "Um projeto de sudoku simples para passar o tempo :)"
+        }
     },
     "pages": {
         "home": {
@@ -32,11 +54,21 @@
         },
         "settings": {
             "change-language": "Alterar idioma"
+        },
+        "sudoku-app": {
+            "select-difficulty": "Selecione a dificuldade",
+            "win-text": "Você resolveu o Sudoku com sucesso! 🏆",
+            "win-title": "Parabéns"
         }
+
     },
     "header": {
         "projects-link": "Projetos",
         "settings-link": "Configurações",
         "contacts-link": "Contatos"
+    },
+    "buttons": {
+        "new-game": "Novo jogo",
+        "generating": "Gerando..."
     }
 }

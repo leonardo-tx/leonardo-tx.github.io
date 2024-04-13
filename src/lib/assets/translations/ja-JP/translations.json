@@ -3,7 +3,8 @@
     "titles": {
         "home": "ホームページ",
         "contacts": "連絡先",
-        "settings": "設定"
+        "settings": "設定",
+        "sudoku-app": "数独"
     },
     "author": {
         "name": "レオナルド・テイシェイラ",
@@ -22,11 +23,32 @@
         "4": "専門家",
         "5": "流暢"
     },
+    "difficulty-type": {
+        "0": "初心者",
+        "1": "簡単",
+        "2": "中程度",
+        "3": "難しい",
+        "4": "専門家"
+    },
     "language-type": {
         "en": "英語",
         "pt-BR": "ブラジルポルトガル語",
         "ja-JP": "日本語",
         "es": "スペイン語"
+    },
+    "projects": {
+        "fun-chess": {
+            "description": "ウェブサイト chess.com からインスピレーションを得たオンライン チェス プロジェクトは、React をフロントエンドとして、C# を API として使用して作成されました" 
+        },
+        "byces-calculator": {
+            "description": "数学式とブール式を計算する Nuget で利用可能な C#/.NET ライブラリ"
+        },
+        "sync-clock": {
+            "description": "Windows マシンの時刻を同期するために C# で開発されたコンソール アプリケーション"
+        },
+        "sudoku-app": {
+            "description": "暇つぶしのためのシンプルな数独プロジェクト :)"
+        }
     },
     "pages": {
         "home": {
@@ -39,12 +61,22 @@
         },
         "settings": {
             "change-language": "言語を変更"
+        },
+        "sudoku-app": {
+            "select-difficulty": "難易度を選択",
+            "win-text": "数独を成功裏に解決しました！ 🏆",
+            "win-title": "おめでとう"
         }
+
     },
     "header": {
         "home-link": "ホーム",
         "projects-link": "プロジェクト",
         "settings-link": "設定",
         "contacts-link": "連絡先"
+    },
+    "buttons": {
+        "new-game": "ニュー ゲーム",
+        "generating": "生成中..."
     }
 }

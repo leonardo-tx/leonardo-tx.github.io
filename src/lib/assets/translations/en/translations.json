@@ -1,8 +1,10 @@
 {
     "titles": {
         "home": "Home page",
+        "projects": "Projects",
         "contacts": "Contacts",
-        "settings": "Settings"
+        "settings": "Settings",
+        "sudoku-app": "Sudoku"
     },
     "author": {
         "name": "Leonardo Teixeira",
@@ -21,6 +23,13 @@
         "4": "Expert",
         "5": "Fluent"
     },
+    "difficulty-type": {
+        "0": "Beginner",
+        "1": "Easy",
+        "2": "Medium",
+        "3": "Hard",
+        "4": "Expert"
+    },
     "language-type": {
         "en": "English",
         "pt-BR": "Brazilian Portuguese",
@@ -29,16 +38,20 @@
     },
     "projects": {
         "fun-chess": {
-            "name": "FunChess"
+            "name": "FunChess",
+            "description": "An online chess project inspired by the website chess.com, was created using React as the front-end and C# as the API"
         },
         "byces-calculator": {
-            "name": "Byces.Calculator"
+            "name": "Byces.Calculator",
+            "description": "A C#/.NET library available on Nuget that calculates mathematical and boolean expressions"
         },
         "sync-clock": {
-            "name": "SyncClock"
+            "name": "SyncClock",
+            "description": "A console application developed in C# to synchronize the time of a Windows machine"
         },
         "sudoku-app": {
-            "name": "SudokuApp"
+            "name": "SudokuApp",
+            "description": "A simple sudoku project to kill time :)"
         }
     },
     "pages": {
@@ -52,6 +65,11 @@
         },
         "settings": {
             "change-language": "Change language"
+        },
+        "sudoku-app": {
+            "select-difficulty": "Select difficulty",
+            "win-text": "You have successfully solved Sudoku! 🏆",
+            "win-title": "Congratulations"
         }
     },
     "header": {
@@ -59,5 +77,9 @@
         "projects-link": "Projects",
         "settings-link": "Settings",
         "contacts-link": "Contacts"
+    },
+    "buttons": {
+        "new-game": "New game",
+        "generating": "Generating..."
     }
 }

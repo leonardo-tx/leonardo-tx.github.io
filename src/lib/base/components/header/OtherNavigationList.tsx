@@ -1,7 +1,7 @@
 "use client";
 
 import { JSX } from "react";
-import styles from "../../styles/Header.module.css";
+import styles from "../../styles/OtherNavigation.module.css";
 import { IconButton, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { IoEllipsisHorizontal, IoSettings } from "react-icons/io5";
 import { Link } from "@chakra-ui/next-js";
