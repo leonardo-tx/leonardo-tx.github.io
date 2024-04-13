@@ -20,7 +20,7 @@ export function setSettingsValue(key: string, value: any): void {
 
 function getAllSettings(): any {
     const allSettings = localStorage.getItem(storageKey);
-    if (allSettings === null || typeof allSettings !== "object") return defaultSettings;
+    if (allSettings === null) return defaultSettings;
 
     return JSON.parse(allSettings);
 }

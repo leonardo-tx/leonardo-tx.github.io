@@ -5,7 +5,7 @@ import * as settingsStorage from "./settings-storage";
 const key = "sudokuBoard";
 
 export function getBoard(): DetailedSudoku | null {
-    const textBoard = settingsStorage.getSettingsValue(key);
+    const textBoard = settingsStorage.getSettingsValue(key); 
     if (textBoard === null || typeof textBoard !== "string") return null;
 
     const board: DetailedSudoku = Array.from({length: BOARD_LENGTH}, () => new Array(9))
