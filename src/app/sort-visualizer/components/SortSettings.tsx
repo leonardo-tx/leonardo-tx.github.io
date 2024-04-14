@@ -105,7 +105,8 @@ export default function SortSettings(): JSX.Element {
                 <SliderContainer>
                     <SettingsDiv>
                         <Text whiteSpace="nowrap">{t("pages.sort-visualizer.elements", sortSettings.elements.length)}</Text>
-                        <Select 
+                        <Select
+                            value={sortSettings.sortType}
                             onChange={(value) => setSortSettings(oldSettings => ({...oldSettings, sortType: value.target.value as SortType}))}>
                             {Object.values(SortType).map((value, i) => (
                                 <option key={i} value={value}>{t(`sort-type.${value}`)}</option>
