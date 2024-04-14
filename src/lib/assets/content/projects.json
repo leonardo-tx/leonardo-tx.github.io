@@ -33,5 +33,13 @@
         "images": [
             "sudoku-app.png"
         ]
+    },
+    {
+        "name": "sort-visualizer",
+        "url": "/sort-visualizer",
+        "projectType": 2,
+        "images": [
+            "sort-visualizer.png" 
+        ]
     }
 ]

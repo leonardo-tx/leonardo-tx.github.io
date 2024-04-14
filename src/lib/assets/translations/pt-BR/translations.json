@@ -1,9 +1,10 @@
 {
     "titles": {
         "home": "Página inicial",
-        "projects": "Projetos",
+    "projects": "Projetos",
         "contacts": "Contatos",
-        "settings": "Configurações"
+        "settings": "Configurações",
+        "sort-visualizer": "Visualizador de Ordenação"
     },
     "project-type": {
         "0": "Pacote"
@@ -41,6 +42,9 @@
         },
         "sudoku-app": {
             "description": "Um projeto de sudoku simples para passar o tempo :)"
+        },
+        "sort-visualizer": {
+            "description": "Um visualizador simples de algoritmo de ordenação"
         }
     },
     "pages": {
@@ -59,8 +63,10 @@
             "select-difficulty": "Selecione a dificuldade",
             "win-text": "Você resolveu o Sudoku com sucesso! 🏆",
             "win-title": "Parabéns"
+        },
+        "sort-visualizer": {
+            "elements": "Elementos: {0}"
         }
-
     },
     "header": {
         "projects-link": "Projetos",

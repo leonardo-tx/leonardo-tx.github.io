@@ -2,6 +2,7 @@
     "translation-mistakes": "選択した言語では主に Google 翻訳が使用されており、翻訳が正しくない可能性があります。私は日本語を勉強中なので、間違いがあったらごめんなさい。",
     "titles": {
         "home": "ホームページ",
+        "projects": "プロジェクト",
         "contacts": "連絡先",
         "settings": "設定",
         "sudoku-app": "数独"
@@ -48,6 +49,9 @@
         },
         "sudoku-app": {
             "description": "暇つぶしのためのシンプルな数独プロジェクト :)"
+        },
+        "sort-visualizer": {
+            "description": "シンプルな並べ替えアルゴリズム ビジュアライザー"
         }
     },
     "pages": {
@@ -66,8 +70,10 @@
             "select-difficulty": "難易度を選択",
             "win-text": "数独を成功裏に解決しました！ 🏆",
             "win-title": "おめでとう"
+        },
+        "sort-visualizer": {
+            "elements": "要素 : {0}"
         }
-
     },
     "header": {
         "home-link": "ホーム",

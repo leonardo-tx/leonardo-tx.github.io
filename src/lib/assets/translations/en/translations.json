@@ -4,7 +4,8 @@
         "projects": "Projects",
         "contacts": "Contacts",
         "settings": "Settings",
-        "sudoku-app": "Sudoku"
+        "sudoku-app": "Sudoku",
+        "sort-visualizer": "Sort Visualizer"
     },
     "author": {
         "name": "Leonardo Teixeira",
@@ -30,6 +31,13 @@
         "3": "Hard",
         "4": "Expert"
     },
+    "sort-type": {
+        "bubbleSort": "Bubble Sort",
+        "selectionSort": "Selection Sort",
+        "insertionSort": "Insertion Sort",
+        "quickSort": "Quick Sort",
+        "mergeSort": "Merge Sort"
+    },
     "language-type": {
         "en": "English",
         "pt-BR": "Brazilian Portuguese",
@@ -52,6 +60,10 @@
         "sudoku-app": {
             "name": "SudokuApp",
             "description": "A simple sudoku project to kill time :)"
+        },
+        "sort-visualizer": {
+            "name": "SortVisualizer",
+            "description": "A simple sorting algorithm visualizer"
         }
     },
     "pages": {
@@ -70,6 +82,9 @@
             "select-difficulty": "Select difficulty",
             "win-text": "You have successfully solved Sudoku! 🏆",
             "win-title": "Congratulations"
+        },
+        "sort-visualizer": {
+            "elements": "Elements: {0}"
         }
     },
     "header": {
