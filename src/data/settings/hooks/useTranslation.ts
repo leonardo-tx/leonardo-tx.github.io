@@ -12,22 +12,24 @@ export default function useTranslation() {
     return { t };
 }
 
-const getTranslation = (translationFile: any, key: string, ...args: any[]): string => {
+const getTranslation = (translationFile: any, key: string, args: any[]): string => {
     const splitedKey = key.split('.');
-    
+
     let value = translationFile;
     splitedKey.forEach((splitKey) => {
         if (value === undefined) return;
         value = value[splitKey]
     });
 
-    return (args.length === 0 ? value : formatString(value, args)) ?? ""; 
+    return formatString(value, args); 
 }
 
-const formatString = (template: string | undefined, ...args: any[]): string => {
+const formatString = (template: string | undefined, args: any[]): string => {
     if (template === undefined) return "";
-
-    return template.replace(/{([0-9]+)}/g, (match, index) => {
-        return typeof args[index] === 'undefined' ? match : args[index];
-    });
+    
+    let str = template;
+    for (let i = 0; i < args.length; i++) {
+        str = str.replace(`{${i}}`, args[i]);
+    }
+    return str;
 }

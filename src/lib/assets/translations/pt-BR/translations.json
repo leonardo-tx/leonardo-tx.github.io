@@ -65,7 +65,8 @@
             "win-title": "Parabéns"
         },
         "sort-visualizer": {
-            "elements": "Elementos: {0}"
+            "elements": "Elementos: {0}",
+            "details": "(Trocas: {0}, Leituras: {1}, Substituições: {2})"
         }
     },
     "header": {

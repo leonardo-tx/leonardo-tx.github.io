@@ -84,7 +84,8 @@
             "win-title": "Congratulations"
         },
         "sort-visualizer": {
-            "elements": "Elements: {0}"
+            "elements": "Elements: {0}",
+            "details": "(Swaps: {0}, Reads: {1}, Replacements: {2})"
         }
     },
     "header": {

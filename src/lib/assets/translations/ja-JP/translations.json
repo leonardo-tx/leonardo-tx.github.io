@@ -72,7 +72,8 @@
             "win-title": "おめでとう"
         },
         "sort-visualizer": {
-            "elements": "要素 : {0}"
+            "elements": "要素 : {0}",
+            "details": "(スワップ: {0}、読み取り: {1}、置換: {2})"
         }
     },
     "header": {

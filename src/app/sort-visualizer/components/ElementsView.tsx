@@ -4,28 +4,18 @@ import { JSX } from "react";
 import sortSettingsAtom from "../atoms/sortSettingsAtom";
 
 export default function ElementsView(): JSX.Element {
-    const sortSettings = useAtomValue(sortSettingsAtom);
-    const percentage = 100 / sortSettings.elements.length;
+    const { elements, sortedIndex, swapIndex } = useAtomValue(sortSettingsAtom);
+    const percentage = 100 / elements.length;
     const viewElements: JSX.Element[] = [];
 
-    for (let i = 0; i < 1000; i++) {
-        const element = sortSettings.elements[i];
-        const getBackgroundColor = () => {
-            if (i === sortSettings.swapIndex) 
-                return "#ffaaaa, #ff9999";
-            if (sortSettings.sortedIndex && 
-                i <= sortSettings.sortedIndex && 
-                i >= sortSettings.sortedIndex - sortSettings.elements.length / 10) return "#99cc99, #99cc99";
-            return "#9970aa, #cc90cc";
-        };
+    for (let i = 0; i < elements.length; i++) {
         viewElements.push(
             <Element
                 key={i}
                 style={{ 
-                    height: `${percentage * element}%`, 
-                    background: `linear-gradient(to left, ${getBackgroundColor()})`
-                }} 
-                $outOfRange={i >= sortSettings.elements.length}
+                    height: `${percentage * elements[i]}%`, 
+                    background: `linear-gradient(to left, ${getBackgroundColor(i, swapIndex, sortedIndex, elements.length)})`
+                }}
             />
         );
     }
@@ -37,6 +27,15 @@ export default function ElementsView(): JSX.Element {
     ); 
 }
 
+const getBackgroundColor = (i: number, swapIndex: number | null, sortedIndex: number | null, length: number) => {
+    if (i === swapIndex) 
+        return "#ffaaaa, #ff9999";
+    if (sortedIndex && i <= sortedIndex && i >= sortedIndex - length / 10) 
+        return "#99cc99, #99cc99";
+    return "#9970aa, #cc90cc";
+};
+
+
 const Container = styled.div`
     display: flex;
     align-items: flex-end;
@@ -44,9 +43,6 @@ const Container = styled.div`
     width: 100%;
 `;
 
-const Element = styled("div", { shouldForwardProp: (propName) => propName !== 'theme' && !propName.startsWith("$")})<{
-    $outOfRange: boolean;
-}>`
-    ${(props) => props.$outOfRange && "display: none;"}
+const Element = styled.div`
     flex: 1;
 `;
