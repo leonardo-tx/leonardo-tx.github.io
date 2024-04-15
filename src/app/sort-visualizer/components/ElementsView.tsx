@@ -14,7 +14,7 @@ export default function ElementsView(): JSX.Element {
                 key={i}
                 style={{ 
                     height: `${percentage * elements[i]}%`, 
-                    background: `linear-gradient(to left, ${getBackgroundColor(i, swapIndex, sortedIndex, elements.length)})`
+                    background: `linear-gradient(to top, ${getBackgroundColor(i, swapIndex, sortedIndex, elements.length)})`
                 }}
             />
         );
@@ -32,7 +32,7 @@ const getBackgroundColor = (i: number, swapIndex: number | null, sortedIndex: nu
         return "#ffaaaa, #ff9999";
     if (sortedIndex && i <= sortedIndex && i >= sortedIndex - length / 10) 
         return "#99cc99, #99cc99";
-    return "#9970aa, #cc90cc";
+    return "#53337c, #c096f7";
 };
 
 
