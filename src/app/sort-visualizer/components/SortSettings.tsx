@@ -1,7 +1,7 @@
 import { JSX, useCallback, useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
 import { Heading, IconButton, Select, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Text } from "@chakra-ui/react";
-import { IoPlay, IoShuffle } from "react-icons/io5";
+import { IoPlay, IoShuffle, IoSwapHorizontal } from "react-icons/io5";
 import { useAtom } from "jotai";
 import sortSettingsAtom from "../atoms/sortSettingsAtom";
 import Sorter from "@/core/common/Sorter";
@@ -99,6 +99,23 @@ export default function SortSettings(): JSX.Element {
         await onEndSorter();
     }
 
+    const reverseElements = async () => {
+        setDetails({ swaps: 0, replaces: 0, reads: 0 });
+
+        const copy = [...sortSettings.elements];
+        const sorter = sortSettings.sortType;
+        const mid = Math.floor(copy.length / 2);
+        for (let i = 0; i < mid; i++) {
+            const j = copy.length - 1 - i;
+            try {
+                await onSwap(i, j, copy, sorter);
+            } catch {
+                break;
+            }
+        }
+        await onEndSorter();
+    }
+
     const sortElements = async () => {
         setDetails({ swaps: 0, replaces: 0, reads: 0 });
 
@@ -122,7 +139,7 @@ export default function SortSettings(): JSX.Element {
             // Nothing
         }
     }
-
+    const isLoading = sortSettings.swapIndex !== null || sortSettings.sortedIndex !== null;
     return (
         <Container>
             <SettingsColumn>
@@ -133,14 +150,26 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={sortSettings.swapIndex !== null || sortSettings.sortedIndex !== null} 
-                    onClick={randomizeElements} aria-label="" icon={<IoShuffle size="60%" />} 
+                    isLoading={isLoading}
+                    onClick={reverseElements}
+                    aria-label=""
+                    icon={<IoSwapHorizontal size="60%" />}
                 />
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={sortSettings.swapIndex !== null || sortSettings.sortedIndex !== null} 
-                    onClick={sortElements} aria-label="" icon={<IoPlay size="60%" />} 
+                    isLoading={isLoading} 
+                    onClick={randomizeElements}
+                    aria-label=""
+                    icon={<IoShuffle size="60%" />} 
+                />
+                <IconButton
+                    width="40px"
+                    height="40px"
+                    isLoading={isLoading} 
+                    onClick={sortElements}
+                    aria-label=""
+                    icon={<IoPlay size="60%" />} 
                 />
                 <SliderContainer>
                     <SettingsRow>
