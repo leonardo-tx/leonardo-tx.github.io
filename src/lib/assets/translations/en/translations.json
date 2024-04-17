@@ -85,7 +85,7 @@
         },
         "sort-visualizer": {
             "elements": "Elements: {0}",
-            "details": "(Swaps: {0}, Reads: {1}, Replacements: {2})"
+            "details": "Swaps: {0}\nReplacements: {1}\nComparisons: {2}"
         }
     },
     "header": {

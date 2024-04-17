@@ -4,13 +4,15 @@ import { atom } from "jotai";
 const sortSettingsAtom = atom<{
     sortType: SortType, 
     elements: number[], 
-    sortedIndex: number | null, 
-    swapIndex: number | null, 
+    sorted: boolean, 
+    swapIndexes: number[] | null,
+    replace: { index: number, value: number } | null
 }>({ 
     sortType: SortType.BubbleSort, 
     elements: Array.from({ length: 100 }, (_, i) => i + 1),
-    sortedIndex: null,
-    swapIndex: null,
+    sorted: false,
+    swapIndexes: null,
+    replace: null
 });
 
 export default sortSettingsAtom;

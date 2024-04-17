@@ -2,13 +2,13 @@ class Sorter<T> {
     private readonly compareFunction: (left: T, right: T) => number;
     private readonly swap: (first: number, second: number) => Promise<void>;
     private readonly replace: (index: number, value: T) => Promise<void>;
-    private readonly getValue: (index: number) => Promise<T>
+    private readonly getValue: (index: number) => T
 
     constructor(
         compareFunction: (left: T, right: T) => number, 
         onSwap: (first: number, second: number) => Promise<void>,
         onReplace: (index: number, value: T) => Promise<void>,
-        onGetValue: (index: number) => Promise<T>
+        onGetValue: (index: number) => T
     ) {
         this.compareFunction = compareFunction;
         this.swap = onSwap;
@@ -23,7 +23,7 @@ class Sorter<T> {
         while (!sorted) {
             sorted = true;
             for (let j = 0; j < i; j++) {
-                if (this.compareFunction(await this.getValue(j), await this.getValue(j + 1)) <= 0) continue;
+                if (this.compareFunction(this.getValue(j), this.getValue(j + 1)) <= 0) continue;
                 
                 await this.swap(j, j + 1);
                 sorted = false;
@@ -37,7 +37,7 @@ class Sorter<T> {
         for (let i = 0; i < length; i++) {
             let minIndex = i;
             for (let j = i + 1; j < length; j++) {
-                if (this.compareFunction(await this.getValue(j), await this.getValue(minIndex)) >= 0) continue;
+                if (this.compareFunction(this.getValue(j), this.getValue(minIndex)) >= 0) continue;
                 minIndex = j;
             }
             await this.swap(minIndex, i);
@@ -47,7 +47,7 @@ class Sorter<T> {
     public async insertionSort(elements: T[]): Promise<void> {
         for (let i = 1; i < elements.length; i++) {
             let j = i;
-            while (j > 0 && this.compareFunction(await this.getValue(j), await this.getValue(j - 1)) < 0) {
+            while (j > 0 && this.compareFunction(this.getValue(j), this.getValue(j - 1)) < 0) {
                 await this.swap(j, j - 1); 
                 j -= 1;
             }
@@ -60,10 +60,10 @@ class Sorter<T> {
         let right = last - 1;
 
         while (true) {
-            while (this.compareFunction(await this.getValue(left), await this.getValue(pivotIndex)) < 0) {
+            while (this.compareFunction(this.getValue(left), this.getValue(pivotIndex)) < 0) {
                 left += 1;
             }
-            while (this.compareFunction(await this.getValue(right), await this.getValue(pivotIndex)) > 0 && right > left) {
+            while (this.compareFunction(this.getValue(right), this.getValue(pivotIndex)) > 0 && right > left) {
                 right -= 1;
             }
             if (left >= right) {
@@ -95,8 +95,8 @@ class Sorter<T> {
         let j = mid + 1;
 
         while (i <= mid && j <= last) {
-            const iValue = await this.getValue(i);
-            const jValue = await this.getValue(j);
+            const iValue = this.getValue(i);
+            const jValue = this.getValue(j);
             if (this.compareFunction(iValue, jValue) <= 0) {
                 temp.push(iValue);
                 i += 1;
@@ -106,11 +106,11 @@ class Sorter<T> {
             }
         }
         while (i <= mid) {
-            temp.push(await this.getValue(i));
+            temp.push(this.getValue(i));
             i += 1;
         }
         while (j <= last) {
-            temp.push(await this.getValue(j));
+            temp.push(this.getValue(j));
             j += 1;
         }
         for (let k = first; k <= last; k++) {

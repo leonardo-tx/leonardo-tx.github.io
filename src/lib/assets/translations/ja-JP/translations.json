@@ -73,7 +73,7 @@
         },
         "sort-visualizer": {
             "elements": "要素 : {0}",
-            "details": "(スワップ: {0}、読み取り: {1}、置換: {2})"
+            "details": "スワップ: {0}\n置換: {1}\n比較: {2}"
         }
     },
     "header": {
