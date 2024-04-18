@@ -24,7 +24,6 @@ export default function Home(): JSX.Element {
 
     useEffect(() => {
         const board = boardStorage.getBoard();
-        console.log(board)
         if (board === null) {
             const emptyBoard = createEmptyBoard();
             setSudoku({ challenge: parseDetailedSudoku(emptyBoard), complete: emptyBoard });
