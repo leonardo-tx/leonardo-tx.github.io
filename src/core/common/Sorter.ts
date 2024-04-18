@@ -16,8 +16,8 @@ class Sorter<T> {
         this.getValue = onGetValue;
     }
 
-    public async bubbleSort(elements: T[]): Promise<void> {
-        let i = elements.length - 1;
+    public async bubbleSort(length: number): Promise<void> {
+        let i = length - 1;
         let sorted = false;
 
         while (!sorted) {
@@ -32,8 +32,7 @@ class Sorter<T> {
         }
     }
 
-    public async selectionSort(elements: T[]): Promise<void> {
-        let length = elements.length;
+    public async selectionSort(length: number): Promise<void> {
         for (let i = 0; i < length; i++) {
             let minIndex = i;
             for (let j = i + 1; j < length; j++) {
@@ -44,8 +43,8 @@ class Sorter<T> {
         }
     }
 
-    public async insertionSort(elements: T[]): Promise<void> {
-        for (let i = 1; i < elements.length; i++) {
+    public async insertionSort(length: number): Promise<void> {
+        for (let i = 1; i < length; i++) {
             let j = i;
             while (j > 0 && this.compareFunction(this.getValue(j), this.getValue(j - 1)) < 0) {
                 await this.swap(j, j - 1); 
@@ -86,8 +85,8 @@ class Sorter<T> {
         await this.quickSortRecursion(pivotIndex + 1, last);
     }
 
-    public async quickSort(elements: T[]): Promise<void> {
-        await this.quickSortRecursion(0, elements.length - 1);
+    public async quickSort(length: number): Promise<void> {
+        await this.quickSortRecursion(0, length - 1);
     }
 
     private async merge(temp: T[], first: number, mid: number, last: number) {
@@ -130,13 +129,12 @@ class Sorter<T> {
         await this.merge(temp, first, mid, last);
     }
 
-    public async mergeSort(elements: T[]): Promise<void> {
-        let size = elements.length;
-        if (size == 0) {
+    public async mergeSort(length: number): Promise<void> {
+        if (length == 0) {
             return;
         }
         let temp: T[] = [];
-        await this.mergeSortRecursion(temp, 0, size - 1); 
+        await this.mergeSortRecursion(temp, 0, length - 1); 
     }
 }
 

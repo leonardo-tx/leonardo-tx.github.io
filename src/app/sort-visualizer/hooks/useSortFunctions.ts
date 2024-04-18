@@ -1,90 +1,120 @@
-import { useAtom } from "jotai";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useAtom, useAtomValue } from "jotai";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import sortSettingsAtom from "../atoms/sortSettingsAtom";
 import SortType from "@/core/sort-visualizer/SortType";
 import Sorter from "@/core/common/Sorter";
+import elementsAtom from "../atoms/elementsAtom";
+
+const changeBackground = "linear-gradient(to top, #ffaaaa, #ff9999)";
+const sortedBackground = "linear-gradient(to top, #99cc99, #99cc99)";
 
 export default function useSortFunctions() {
     const [sortSettings, setSortSettings] = useAtom(sortSettingsAtom);
-    const [details, setDetails] = useState({ swap: 0, replace: 0, read: 0, compare: 0 });
+    const elements = useAtomValue(elementsAtom);
+    const [details, setDetails] = useState({ swap: 0, replace: 0, compare: 0 });
+    const isSorting = useRef(false);
 
     useEffect(() => {
         setSortSettings((oldSettings) => ({
             ...oldSettings,
-            elements: Array.from({ length: 100 }, (_, i) => i + 1)
-        }))
-
-        return () => {
-            setSortSettings((oldSettings) => ({
-                sortType: SortType.BubbleSort, 
-                elements: Array.from({ length: oldSettings.elements.length + 1 }, (_, i) => i + 1),
-                sorted: false,
-                swapIndexes: null,
-                replace: null
-            }))
-        }
+            length: 100
+        }));
     }, [setSortSettings]);
     
-    const time = useMemo(() => 4000 / sortSettings.elements.length, [sortSettings.elements.length]);
+    const time = useMemo(() => 4000 / sortSettings.length, [sortSettings.length]);
     
-    const onSwap = useCallback(async (first: number, second: number, elements: number[], sorter: SortType) => { 
-        [elements[first], elements[second]] = [elements[second], elements[first]];
+    const onSwap = useCallback(async (first: number, second: number) => {
+        if (elements === null || elements.current === null) throw Error();
+        const child1 = elements.current.children.item(first) as HTMLDivElement;
+        const child2 = elements.current.children.item(second) as HTMLDivElement;
 
+        if (child1 === null || child2 === null || !isSorting.current) throw Error();
+        
+        child1.style.background = changeBackground;
+        await waitRender(time / 2);
+        
+        if (!isSorting.current) throw Error();
+
+        [child1.style.height, child2.style.height] = [child2.style.height, child1.style.height];
+        child1.style.background = "";
+        child2.style.background = changeBackground;
         setDetails((oldDetails) => ({...oldDetails, swap: oldDetails.swap + 1}));
-        setSortSettings((oldSettings) => {
-            if (oldSettings.elements.length !== elements.length || sorter !== oldSettings.sortType) throw Error();
-            return {...oldSettings, swapIndexes: [first]};
-        });
-        await waitRender(time / 2)
-        setSortSettings((oldSettings) => {
-            if (oldSettings.elements.length !== elements.length || sorter !== oldSettings.sortType) throw Error();
-            return {...oldSettings, swapIndexes: [first, second], elements: [...elements]};
-        });
-        await waitRender(time / 2)
-    }, [setSortSettings, time])
+        await waitRender(time / 2);
+        
+        child2.style.background = "";
+    }, [time, elements])
 
-    const onReplace = useCallback(async (index: number, value: number, elements: number[], sorter: SortType) => {
-        elements[index] = value;
+    const onReplace = useCallback(async (index: number, value: number) => {
+        if (elements === null || elements.current === null) throw Error();
+        const child = elements.current.children.item(index) as HTMLDivElement;
 
+        if (child === null || !isSorting.current) throw Error();
+        
+        child.style.height = `${value}%`;
+        child.style.background = changeBackground;
         setDetails((oldDetails) => ({...oldDetails, replace: oldDetails.replace + 1}));
-        setSortSettings((oldSettings) => {
-            if (oldSettings.elements.length !== elements.length || sorter !== oldSettings.sortType) throw Error();
-            return {...oldSettings, replace: { index, value }, elements: [...elements]};
-        });
-        await waitRender(time)
-    }, [setSortSettings, time])
+        await waitRender(time);
+        
+        child.style.background = "";
+    }, [time, elements])
 
-    const onGetValue = useCallback((index: number, elements: number[]) => {
-        setDetails((oldDetails) => ({...oldDetails, read: oldDetails.read + 1}));
-        return elements[index];
-    }, [])
+    const onGetValue = useCallback((index: number) => {
+        if (elements === null || elements.current === null) throw Error();
+        const child = elements.current.children.item(index) as HTMLDivElement;
 
-    const onComparation = useCallback((left: number, right: number) => {
+        if (child === null || !isSorting.current) throw Error();
+        return parseFloat(child.style.height.slice(0, child.style.height.length - 1));
+    }, [elements])
+
+    const onComparation = useCallback((left: number, right: number, count: boolean = true) => {
+        if (!count) return left - right;
+        
         setDetails((oldDetails) => ({...oldDetails, compare: oldDetails.compare + 1}));
         return left - right;
     }, [setDetails]);
 
-    const onEndSorter = async (sorter: SortType | undefined = undefined, elements: number[] | undefined = undefined) => {
-        await waitRender(time / 2);
-        setSortSettings((oldSettings) => ({...oldSettings, swapIndexes: null, replace: null}));
+    const onEndSorter = async (sorter: SortType | undefined = undefined) => {
+        await waitRender(time / 2); 
 
-        if (!sorter || !elements) return;
-        for (let i = 0; i < elements.length; i++) {
-            if (elements[i] !== i + 1) return;
+        if (!sorter || elements === null || elements.current === null) {
+            setSortSettings((oldSettings) => ({...oldSettings, isSorting: false}));
+            return;
         }
-        setSortSettings((oldSettings) => ({...oldSettings, sorted: true}));
+        for (let i = 0; i < sortSettings.length - 1; i++) {
+            if (onComparation(i, i + 1, false) >= 0) {
+                setSortSettings((oldSettings) => ({...oldSettings, isSorting: false}));
+                return;
+            }
+        }
+        const sortedLength = sortSettings.length / 10;
+        for (let i = -sortedLength; i < sortSettings.length; i++) {
+            const childToRemoveBackground = elements.current.children.item(i - 1) as HTMLDivElement;
+            if (childToRemoveBackground !== null) {
+                childToRemoveBackground.style.background = "";
+            }
+            for (let j = i; j < i + sortedLength; j++) {
+                const childToAddBackground = elements.current.children.item(j) as HTMLDivElement;
+                if (!isSorting.current) throw Error();
+                if (childToAddBackground !== null) {
+                    childToAddBackground.style.background = sortedBackground;
+                }
+            }
+            await waitRender(time / 2);
+        }
+        (elements.current.children[sortSettings.length - 1] as HTMLDivElement).style.background = "";
+        setSortSettings((oldSettings) => ({...oldSettings, isSorting: false}));
+        isSorting.current = false;
     }
 
     const randomizeElements = async () => {
-        setDetails({ swap: 0, replace: 0, read: 0, compare: 0 });
+        setDetails({ swap: 0, replace: 0, compare: 0 });
+        setSortSettings((oldSettings) => ({...oldSettings, isSorting: true}));
+        isSorting.current = true;
 
-        const copy = [...sortSettings.elements];
-        const sorter = sortSettings.sortType;
-
-        for (let i = 0; i < copy.length; i++) {
-            const j = Math.floor(Math.random() * sortSettings.elements.length);
+        for (let i = 0; i < sortSettings.length; i++) {
+            const j = Math.floor(Math.random() * sortSettings.length);
             try {
-                await onSwap(i, j, copy, sorter);
+                await onSwap(i, j);
             } catch {
                 break;
             }
@@ -93,15 +123,15 @@ export default function useSortFunctions() {
     }
 
     const reverseElements = async () => {
-        setDetails({ swap: 0, replace: 0, read: 0, compare: 0 });
+        setDetails({ swap: 0, replace: 0, compare: 0 });
+        setSortSettings((oldSettings) => ({...oldSettings, isSorting: true}));
+        isSorting.current = true;
 
-        const copy = [...sortSettings.elements];
-        const sorter = sortSettings.sortType;
-        const mid = Math.floor(copy.length / 2);
+        const mid = Math.floor(sortSettings.length / 2);
         for (let i = 0; i < mid; i++) {
-            const j = copy.length - 1 - i;
+            const j = sortSettings.length - 1 - i;
             try {
-                await onSwap(i, j, copy, sorter);
+                await onSwap(i, j);
             } catch {
                 break;
             }
@@ -110,47 +140,45 @@ export default function useSortFunctions() {
     }
 
     const sortElements = async () => {
-        const details = { swap: 0, replace: 0, read: 0, compare: 0 }
-        setDetails({...details});
+        setDetails({ swap: 0, replace: 0, compare: 0 });
+        setSortSettings((oldSettings) => ({...oldSettings, isSorting: true}));
+        isSorting.current = true;
 
-        const copy = [...sortSettings.elements];
         const sorterType = sortSettings.sortType;
         const sorter: Sorter<number> = new Sorter(
-            (left, right) => onComparation(left, right),
-            (first, second) => onSwap(first, second, copy, sorterType),
-            (index, value) => onReplace(index, value, copy, sorterType),
-            (index) => onGetValue(index, copy)
+            onComparation,
+            onSwap,
+            onReplace,
+            onGetValue
         );
 
         try {
-            await sorter[sorterType](copy);
+            await sorter[sorterType](sortSettings.length);
         } catch (e) {
-           // Nothing 
+           // Nothing
         }
         try {
-            await onEndSorter(sorterType, copy); 
+            await onEndSorter(sorterType); 
         } catch {
             // Nothing
         }
     }
 
     const changeSorter = (sorter: SortType) => {
+        isSorting.current = false;
         setSortSettings(oldSettings => ({
             ...oldSettings,
-            swapIndex: null,
-            sortedIndex: null,
-            sortType: sorter, 
-            elements: Array.from({ length: oldSettings.elements.length }, (_, i) => i + 1)
+            isSorting: false,
+            sortType: sorter
         }));
     }
 
     const changeSize = (length: number) => {
+        isSorting.current = false;
         setSortSettings((oldSettings) => ({
             ...oldSettings, 
-            sortedIndex: null, 
-            swapIndex: null, 
-            elements: Array.from({ length }, (_, i) => i + 1),
-            sorted: false
+            isSorting: false,
+            length
         }));
 
     }

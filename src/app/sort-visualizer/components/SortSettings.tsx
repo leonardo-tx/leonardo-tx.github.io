@@ -8,9 +8,8 @@ import useSortFunctions from "../hooks/useSortFunctions";
 
 export default function SortSettings(): JSX.Element {
     const { sortElements, randomizeElements, reverseElements, changeSize, changeSorter, details, sortSettings } = useSortFunctions();
-    const { t } = useTranslation(); 
+    const { t } = useTranslation();
     
-    const isLoading = sortSettings.swapIndexes !== null || sortSettings.sorted || sortSettings.replace !== null;
     return (
         <Container>
             <SettingsColumn>
@@ -23,7 +22,7 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={isLoading}
+                    isLoading={sortSettings.isSorting}
                     onClick={reverseElements}
                     aria-label=""
                     icon={<IoSwapHorizontal size="60%" />}
@@ -31,7 +30,7 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={isLoading} 
+                    isLoading={sortSettings.isSorting} 
                     onClick={randomizeElements}
                     aria-label=""
                     icon={<IoShuffle size="60%" />} 
@@ -39,14 +38,14 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={isLoading} 
+                    isLoading={sortSettings.isSorting} 
                     onClick={sortElements}
                     aria-label=""
                     icon={<IoPlay size="60%" />} 
                 />
                 <SliderContainer>
                     <SettingsRow>
-                        <Text whiteSpace="nowrap">{t("pages.sort-visualizer.elements", sortSettings.elements.length)}</Text>
+                        <Text whiteSpace="nowrap">{t("pages.sort-visualizer.elements", sortSettings.length)}</Text>
                         <Select
                             value={sortSettings.sortType}
                             onChange={(e) => changeSorter(e.target.value as SortType)}>
@@ -59,7 +58,7 @@ export default function SortSettings(): JSX.Element {
                         max={1000} 
                         min={10} 
                         step={5} 
-                        value={sortSettings.elements.length} 
+                        value={sortSettings.length} 
                         onChange={changeSize}>
                         <SliderTrack>
                             <SliderFilledTrack />
