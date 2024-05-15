@@ -5,7 +5,7 @@ import InfoBanner from "./components/InfoBanner";
 import ProjectsSlider from "./components/ProjectsSlider";
 import styles from "./styles/Home.module.css";
 import { Heading } from "@chakra-ui/react";
-import { SiC, SiCsharp, SiJavascript, SiKotlin, SiReact, SiTypescript } from "react-icons/si";
+import { SiC, SiCsharp, SiJavascript, SiKotlin, SiReact, SiRust, SiTypescript } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 import useTranslation from "@/data/settings/hooks/useTranslation";
 import SkillItem from "./components/SkillItem";
@@ -31,6 +31,7 @@ export default function HomePage(): JSX.Element {
                         <SkillItem icon={<SiJavascript color="#dbdd6f" size={35} />} title="Javascript" progress={50} />
                         <SkillItem icon={<DiJava color="#f54f32" size={35} />} title="Java" progress={45} />
                         <SkillItem icon={<SiKotlin color="#a084d4" size={35} />} title="Kotlin" progress={40} />
+                        <SkillItem icon={<SiRust color="#dddddd" size={35} />} title="Rust" progress={21} />
                         <SkillItem icon={<SiC color="#84d4cd" size={35} />} title="" progress={8} />
                     </div>
                 </section>

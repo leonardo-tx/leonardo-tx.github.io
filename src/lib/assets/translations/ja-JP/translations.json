@@ -73,7 +73,9 @@
         },
         "sort-visualizer": {
             "elements": "要素 : {0}",
-            "details": "スワップ: {0}\n置換: {1}\n比較: {2}"
+            "details": "スワップ: {0}\n置換: {1}\n比較: {2}\n再配置: {3}",
+            "normal-sorters": "通常のソートアルゴリズム",
+            "meme-sorters": "奇妙なソートアルゴリズム"
         }
     },
     "header": {

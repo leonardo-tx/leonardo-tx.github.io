@@ -36,7 +36,9 @@
         "selectionSort": "Selection Sort",
         "insertionSort": "Insertion Sort",
         "quickSort": "Quick Sort",
-        "mergeSort": "Merge Sort"
+        "mergeSort": "Merge Sort",
+        "heapSort": "Heap Sort",
+        "thanosSort": "Thanos Sort"
     },
     "language-type": {
         "en": "English",
@@ -85,7 +87,9 @@
         },
         "sort-visualizer": {
             "elements": "Elements: {0}",
-            "details": "Swaps: {0}\nReplacements: {1}\nComparisons: {2}"
+            "details": "Swaps: {0}\nReplacements: {1}\nComparisons: {2}\nRelocations: {3}",
+            "normal-sorters": "Normal Sorters",
+            "meme-sorters": "Strange Sorters"
         }
     },
     "header": {

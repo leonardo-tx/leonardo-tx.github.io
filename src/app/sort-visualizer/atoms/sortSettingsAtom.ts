@@ -1,14 +1,13 @@
-import SortType from "@/core/sort-visualizer/SortType";
+import MemeSortType from "@/core/sort-visualizer/MemeSortType";
+import NormalSortType from "@/core/sort-visualizer/NormalSortType";
 import { atom } from "jotai";
 
 const sortSettingsAtom = atom<{
-    sortType: SortType,  
-    isSorting: boolean,
+    sortType: MemeSortType | NormalSortType,
     length: number,
 }>({ 
-    sortType: SortType.BubbleSort, 
+    sortType: NormalSortType.BubbleSort, 
     length: 100, 
-    isSorting: false,
 });
 
 export default sortSettingsAtom;

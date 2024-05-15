@@ -2,9 +2,10 @@ import { JSX } from "react";
 import styled from "@emotion/styled";
 import { Heading, IconButton, Select, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Text } from "@chakra-ui/react";
 import { IoPlay, IoShuffle, IoSwapHorizontal } from "react-icons/io5";
-import SortType from "@/core/sort-visualizer/SortType";
+import NormalSortType from "@/core/sort-visualizer/NormalSortType";
 import useTranslation from "@/data/settings/hooks/useTranslation";
 import useSortFunctions from "../hooks/useSortFunctions";
+import MemeSortType from "@/core/sort-visualizer/MemeSortType";
 
 export default function SortSettings(): JSX.Element {
     const { sortElements, randomizeElements, reverseElements, changeSize, changeSorter, details, sortSettings } = useSortFunctions();
@@ -15,14 +16,13 @@ export default function SortSettings(): JSX.Element {
             <SettingsColumn>
                 <Heading minW="200px" whiteSpace="nowrap" size="xl">{t(`sort-type.${sortSettings.sortType}`)}</Heading>
                 <Text whiteSpace="break-spaces">
-                    {t("pages.sort-visualizer.details", details.swap, details.replace, details.compare)}
+                    {t("pages.sort-visualizer.details", details.swap, details.replace, details.compare, details.relocation)}
                 </Text>
             </SettingsColumn>
             <Settings>
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={sortSettings.isSorting}
                     onClick={reverseElements}
                     aria-label=""
                     icon={<IoSwapHorizontal size="60%" />}
@@ -30,7 +30,6 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={sortSettings.isSorting} 
                     onClick={randomizeElements}
                     aria-label=""
                     icon={<IoShuffle size="60%" />} 
@@ -38,7 +37,6 @@ export default function SortSettings(): JSX.Element {
                 <IconButton
                     width="40px"
                     height="40px"
-                    isLoading={sortSettings.isSorting} 
                     onClick={sortElements}
                     aria-label=""
                     icon={<IoPlay size="60%" />} 
@@ -48,10 +46,17 @@ export default function SortSettings(): JSX.Element {
                         <Text whiteSpace="nowrap">{t("pages.sort-visualizer.elements", sortSettings.length)}</Text>
                         <Select
                             value={sortSettings.sortType}
-                            onChange={(e) => changeSorter(e.target.value as SortType)}>
-                            {Object.values(SortType).map((value, i) => (
-                                <option key={i} value={value}>{t(`sort-type.${value}`)}</option>
-                            ))} 
+                            onChange={(e) => changeSorter(e.target.value as NormalSortType | MemeSortType)}>
+                            <optgroup label={t("pages.sort-visualizer.normal-sorters")}>
+                                {Object.values(NormalSortType).map((value, i) => (
+                                    <option key={i} value={value}>{t(`sort-type.${value}`)}</option>
+                                ))} 
+                            </optgroup>
+                            <optgroup label={t("pages.sort-visualizer.meme-sorters")}>
+                                {Object.values(MemeSortType).map((value, i) => (
+                                    <option key={i} value={value}>{t(`sort-type.${value}`)}</option>
+                                ))} 
+                            </optgroup>
                         </Select>
                     </SettingsRow>
                     <Slider 

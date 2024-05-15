@@ -66,7 +66,9 @@
         },
         "sort-visualizer": {
             "elements": "Elementos: {0}",
-            "details": "Trocas: {0}\nSubstituições: {1}\nComparações: {2}"
+            "details": "Trocas: {0}\nSubstituições: {1}\nComparações: {2}\nRealocações: {3}",
+            "normal-sorters": "Sorteadores Normais",
+            "meme-sorters": "Sorteadores Estranhos"
         }
     },
     "header": {

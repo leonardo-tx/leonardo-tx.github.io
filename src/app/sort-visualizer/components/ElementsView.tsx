@@ -16,7 +16,7 @@ for (let i = 0; i < 1000; i++) {
 }
 
 export default function ElementsView(): JSX.Element {
-    const { length, sortType } = useAtomValue(sortSettingsAtom);
+    const { length } = useAtomValue(sortSettingsAtom);
 
     const setElements = useSetAtom(elementsAtom);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ export default function ElementsView(): JSX.Element {
             child.style.height = "";
             child.style.display = "none";
         }
-    }, [length, sortType]); 
+    }, []); 
 
     return (
         <Container ref={containerRef}>

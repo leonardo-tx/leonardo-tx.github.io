@@ -1,9 +1,10 @@
-enum SortType {
+enum NormalSortType {
     BubbleSort = "bubbleSort",
     SelectionSort = "selectionSort",
     InsertionSort = "insertionSort",
     QuickSort = "quickSort",
-    MergeSort = "mergeSort"
+    MergeSort = "mergeSort",
+    HeapSort = "heapSort",
 }
 
-export default SortType;
+export default NormalSortType;
