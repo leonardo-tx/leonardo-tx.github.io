@@ -3,43 +3,37 @@
         "name": "fun-chess",
         "githubUrl": "https://github.com/leonardo-tx/FunChess",
         "projectType": 2,
-        "images": [
-            "play-page.png",
-            "online-match.png",
-            "online-chat.png"
-        ]
+        "images": ["play-page.png", "online-match.png", "online-chat.png"]
     },
     {
         "name": "byces-calculator",
         "githubUrl": "https://github.com/leonardo-tx/Byces.Calculator",
         "nugetUrl": "https://www.nuget.org/packages/Byces.Calculator",
         "projectType": 0,
-        "images": [
-            "nuget-page.png"
-        ]
+        "images": ["nuget-page.png"]
     },
     {
         "name": "sync-clock",
         "githubUrl": "https://github.com/leonardo-tx/SyncClock",
         "projectType": 1,
-        "images": [
-            "main-menu.png"
-        ]
+        "images": ["main-menu.png"]
     },
     {
         "name": "sudoku-app",
         "url": "/sudoku-app",
         "projectType": 2,
-        "images": [
-            "sudoku-app.png"
-        ]
+        "images": ["sudoku-app.png"]
     },
     {
         "name": "sort-visualizer",
         "url": "/sort-visualizer",
         "projectType": 2,
-        "images": [
-            "sort-visualizer.png" 
-        ]
+        "images": ["sort-visualizer.png"]
+    },
+    {
+        "name": "wheelspin",
+        "url": "/wheelspin",
+        "projectType": 2,
+        "images": ["wheelspin.png"]
     }
 ]

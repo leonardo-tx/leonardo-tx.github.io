@@ -5,7 +5,8 @@
         "projects": "プロジェクト",
         "contacts": "連絡先",
         "settings": "設定",
-        "sudoku-app": "数独"
+        "sudoku-app": "数独",
+        "wheelspin": "ホイールスピン"
     },
     "author": {
         "name": "レオナルド・テイシェイラ",
@@ -52,6 +53,9 @@
         },
         "sort-visualizer": {
             "description": "シンプルな並べ替えアルゴリズム ビジュアライザー"
+        },
+        "wheelspin": {
+            "description": "シンプルなルーレット"
         }
     },
     "pages": {
@@ -86,6 +90,11 @@
     },
     "buttons": {
         "new-game": "ニュー ゲーム",
-        "generating": "生成中..."
+        "generating": "生成中...",
+        "add": "追加",
+        "spin": "スピン"
+    },
+    "inputs": {
+        "insert-text": "テキストを入力してください"
     }
 }

@@ -4,7 +4,8 @@
     "projects": "Projetos",
         "contacts": "Contatos",
         "settings": "Configurações",
-        "sort-visualizer": "Visualizador de Ordenação"
+        "sort-visualizer": "Visualizador de Ordenação",
+        "wheelspin": "Roleta"
     },
     "project-type": {
         "0": "Pacote"
@@ -45,6 +46,9 @@
         },
         "sort-visualizer": {
             "description": "Um visualizador simples de algoritmo de ordenação"
+        },
+        "wheelspin": {
+            "description": "Uma simples roleta"
         }
     },
     "pages": {
@@ -78,6 +82,11 @@
     },
     "buttons": {
         "new-game": "Novo jogo",
-        "generating": "Gerando..."
+        "generating": "Gerando...",
+        "add": "Adicionar",
+        "spin": "Girar"
+    },
+    "inputs": {
+        "insert-text": "Insira o texto"
     }
 }
